@@ -16,14 +16,15 @@ $(function () {
     var vue = new Vue({
         el:'#workingArea',
         data:data4Vue,
-        mounted:function () {//mounted表示这个Vue对象加载成功
+        mounted:function () { //mounted表示这个Vue对象加载成功
             this.list(0);//加载成功执行list()方法
         },methods:{
-            list:function (start) {//list方法
-                var url=this.url + "?start="+start;//this.url即data4Vue的url
-                axios.get(url).then(function (response) {//使用ajax类库axios请求url
-                    vue.beans = response.data.content;//返回data数据,vue.beans即当前vue(data4Vue)的beans
+            list:function (start) { //list方法
+                var url=this.url + "?start="+start; //this.url即data4Vue的url
+                axios.get(url).then(function (response) { //使用ajax类库axios请求url
+                    vue.beans = response.data.content; //返回data数据,vue.beans即当前vue(data4Vue)的beans
                     vue.pagination = response.data;
+
                 })
             },
             jump:function (page) {
